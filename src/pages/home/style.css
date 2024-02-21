@@ -1,0 +1,85 @@
+.post__navigation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 60px;
+  max-width: 600px;
+  padding: 0 40px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: #999999;
+}
+
+.post__navigation--active {
+  color: #111111;
+}
+
+.post__list {
+  max-width: 600px;
+  min-height: 90vh;
+  padding: 0 40px;
+  margin: auto;
+}
+
+.post__list .post__box {
+  padding: 20px 0;
+  border-top: 1px solid #f2f2f2;
+}
+
+.post__list .post__box a {
+  text-decoration: none;
+  color: #111111;
+}
+
+.post__list .post__box .post__profile-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #999999;
+}
+
+.post__list .post__box .post__profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background: #f2f2f2;
+}
+
+.post__list .post__box .post__author-name {
+  font-size: 14px;
+  
+}
+
+.post__list .post__box .post__title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.post__list .post__box .post__text {
+  text-align: left;
+  word-break: keep-all;
+  word-wrap: break-word;
+  line-height: 1.5em;
+  margin-bottom: 10px;
+}
+
+.post__list .post__box .post__utils-box {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+  font-size: 14px;
+  color: #999999;
+}
+
+.post__delete:active,
+.post__delete:hover {
+  color: #111111;
+}
+
+.post__update:active,
+.post__update:hover {
+  color: #111111;
+}
