@@ -1,0 +1,78 @@
+.post__detail {
+  max-width: 680px;
+  min-height: 90vh;
+  padding: 20px;
+  margin: auto;
+}
+
+.post__detail .post__box {
+  border-top: 1px solid #f2f2f2;
+  margin-bottom: 25px;
+}
+
+.post__detail .post__box .post__title {
+  text-align: left;
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.post__detail .post__box .post__profile-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #999999;
+  margin-bottom: 10px;
+}
+
+.post__detail .post__box .post__profile-box .post__profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background: #f2f2f2;
+}
+
+.post__detail .post__box .post__profile-box .post__author-name {
+  font-size: 14px;
+}
+
+.post__detail .post__box .post__utils-box {
+  display: flex;
+  gap: 8px;
+  padding: 15px 0;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 14px;
+  color: #999999;
+}
+
+.post__delete,
+.post__edit {
+  cursor: pointer;
+}
+
+.post__delete:active,
+.post__delete:hover {
+  color: #111111;
+}
+
+.post__edit:active,
+.post__edit:hover,
+.post__edit a:active,
+.post__edit a:hover {
+  color: #111111;
+}
+
+.post__edit a {
+  color: #999999;
+  text-decoration: none;
+}
+
+.post__detail .post__box .post__text {
+  padding-top: 25px;
+  text-align: left;
+  word-break: keep-all;
+  word-wrap: break-word;
+  line-height: 1.5em;
+}

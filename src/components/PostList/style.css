@@ -1,0 +1,94 @@
+.post__navigation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 680px;
+  padding: 48px 20px 0 20px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: #999999;
+  user-select: none;
+}
+
+.post__navigation > div {
+  cursor: pointer;
+}
+
+.post__navigation--active {
+  color: #111111;  
+}
+
+.post__list {
+  max-width: 680px;
+  min-height: 90vh;
+  padding: 20px;
+  margin: auto;
+}
+
+.post__list .post__box {
+  padding: 20px 0;
+  border-top: 1px solid #f2f2f2;
+}
+
+.post__list .post__box a {
+  text-decoration: none;
+  color: #111111;
+}
+
+.post__list .post__box .post__profile-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #999999;
+}
+
+.post__list .post__box .post__profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background: #f2f2f2;
+}
+
+.post__list .post__box .post__author-name {
+  font-size: 14px;
+  
+}
+
+.post__list .post__box .post__title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.post__list .post__box .post__text {
+  text-align: left;
+  word-break: keep-all;
+  word-wrap: break-word;
+  line-height: 1.5em;
+  margin-bottom: 10px;
+}
+
+.post__list .post__box .post__utils-box {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+  font-size: 14px;
+  color: #999999;
+}
+
+.post__delete,
+.post__edit {
+  cursor: pointer;
+}
+
+.post__delete:active,
+.post__delete:hover {
+  color: #111111;
+}
+
+.post_edit:active,
+.post_edit:hover {
+  color: #111111;
+}
