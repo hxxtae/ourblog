@@ -17,6 +17,7 @@ header a {
   margin: 0 10px;
   text-decoration: none;
   color: #999999;
+  font-size: 14px;
 }
 
 header:active,
