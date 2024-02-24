@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { app } from 'firebaseApp';
 import { getAuth } from 'firebase/auth';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+import { app } from 'firebaseApp';
 import Router from 'components/Router';
 
 function App() {
@@ -10,7 +12,10 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!auth?.currentUser);
 
   return (
-    <Router isAuthenticated={isAuthenticated} />
+    <>
+      <ToastContainer />
+      <Router isAuthenticated={isAuthenticated} />
+    </>
   );
 }
 
