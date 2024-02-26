@@ -8,7 +8,7 @@ export default function PostForm() {
         <input type="text" name="title" id="title" required />
       </div>
       <div className="form__block">
-        <label htmlFor="title">요약</label>
+        <label htmlFor="summary">요약</label>
         <input type="text" name="summary" id="summary" required />
       </div>
       <div className="form__block">
