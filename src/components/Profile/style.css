@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 680px;
-  padding: 20px 0;
+  padding: 20px;
   margin: 0 auto;
 }
 
@@ -31,6 +31,8 @@
 .profile__box .profile__logout {
   color: #999999;
   font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .profile__box .profile__logout:active,
