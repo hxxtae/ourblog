@@ -47,24 +47,22 @@
   color: #999999;
 }
 
-.post__delete,
-.post__edit {
+.post__detail .post__utils-box .post__delete,
+.post__detail .post__utils-box .post__edit {
   cursor: pointer;
 }
 
-.post__delete:active,
-.post__delete:hover {
+.post__detail .post__delete:active,
+.post__detail .post__delete:hover {
   color: #111111;
 }
 
-.post__edit:active,
-.post__edit:hover,
-.post__edit a:active,
-.post__edit a:hover {
+.post__detail .post__edit:active,
+.post__detail .post__edit:hover{
   color: #111111;
 }
 
-.post__edit a {
+.post__detail .post__edit {
   color: #999999;
   text-decoration: none;
 }
@@ -75,4 +73,8 @@
   word-break: keep-all;
   word-wrap: break-word;
   line-height: 1.5em;
+}
+
+.post__detail .post__box .post__text--pre-wrap {
+  white-space: pre-wrap;
 }

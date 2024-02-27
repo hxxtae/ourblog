@@ -70,7 +70,7 @@
   margin-bottom: 10px;
 }
 
-.post__list .post__box .post__utils-box {
+.post__list .post__utils-box {
   display: flex;
   flex-direction: row-reverse;
   gap: 8px;
@@ -78,17 +78,26 @@
   color: #999999;
 }
 
-.post__delete,
-.post__edit {
-  cursor: pointer;
+.post__list .post__no-post {
+  padding: 20px 0;
+  border: 1px solid #f2f2f2;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 14px;
 }
 
-.post__delete:active,
-.post__delete:hover {
+.post__list .post__utils-box .post__delete,
+.post__list .post__utils-box .post__edit {
+  cursor: pointer;
+  color: #999999;
+}
+
+.post__list .post__utils-box .post__delete:active,
+.post__list .post__utils-box .post__delete:hover {
   color: #111111;
 }
 
-.post_edit:active,
-.post_edit:hover {
+.post__list .post__utils-box .post__edit:active,
+.post__list .post__utils-box .post__edit:hover {
   color: #111111;
 }

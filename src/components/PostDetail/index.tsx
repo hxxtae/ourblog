@@ -1,33 +1,80 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { db } from 'firebaseApp';
+import { deleteDoc, doc, getDoc } from 'firebase/firestore';
+
+import { PostProps } from 'components/PostList';
+import Loader from 'components/Loader';
 import './style.css';
+import { toast } from 'react-toastify';
 
 export default function PostDetail() {
+  const [post, setPost] = useState<PostProps | null>(null);
+  const params = useParams();
+  const navigate = useNavigate();
+
+  const getPost = async (id: string) => {
+    if (id) {
+      const docSnap = await getDoc(doc(db, "posts", id));
+      if (docSnap.exists()) {
+        setPost({
+          id: docSnap.id,
+          ...docSnap.data()
+        } as PostProps);
+      }
+    }
+  }
+
+  const handleDelete = async (id: string) => {
+    if (!id) return;
+    if (window.confirm("게시글을 삭제하시겠습니까?")) {
+      try {
+        await deleteDoc(doc(db, "posts", id));
+        toast.success("게시글이 삭제되었습니다.");
+        navigate(-1);
+      } catch (err: any) {
+        toast.error(err?.code);
+        console.error(err);
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (params?.id) getPost(params.id);
+  }, [params?.id]);
+
   return (
     <>
       <div className="post__detail">
-        <div className="post__box">
-          <div className="post__title">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          </div>
-          <div className="post__profile-box">
-            <div className="post__profile" />
-            <div className="post__author-name">패스트캠퍼스</div>
-            <div className="post__date">2023.07.08 토요일</div>
-          </div>
-          <div className="post__utils-box">
-            <div className="post__delete">삭제</div>
-            <div className="post__edit">
-              <Link to={"/posts/edit/1"}>수정</Link>
+        {post ? (
+          <div className="post__box">
+            <div className="post__title">
+              {post.title}
             </div>
-          </div>
-          <div className="post__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quas nobis necessitatibus explicabo corrupti debitis, qui asperiores officiis quibusdam! Eum facilis tempora quasi! Temporibus, minima reprehenderit. Molestiae unde velit magni?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quas nobis necessitatibus explicabo corrupti debitis, qui asperiores officiis quibusdam! Eum facilis tempora quasi! Temporibus, minima reprehenderit. Molestiae unde velit magni?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quas nobis necessitatibus explicabo corrupti debitis, qui asperiores officiis quibusdam! Eum facilis tempora quasi! Temporibus, minima reprehenderit. Molestiae unde velit magni?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quas nobis necessitatibus explicabo corrupti debitis, qui asperiores officiis quibusdam! Eum facilis tempora quasi! Temporibus, minima reprehenderit. Molestiae unde velit magni?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quas nobis necessitatibus explicabo corrupti debitis, qui asperiores officiis quibusdam! Eum facilis tempora quasi! Temporibus, minima reprehenderit. Molestiae unde velit magni?
-          </div>
-        </div>
+            <div className="post__profile-box">
+              <div className="post__profile" />
+              <div className="post__author-name">{ post.email }</div>
+              <div className="post__date">{ post.createAt }</div>
+            </div>
+            <div className="post__utils-box">
+              <div
+                role="presentation"
+                className="post__delete"
+                onClick={() => handleDelete(post.id)}
+              >
+                삭제
+              </div>
+              <Link
+                className="post__edit"
+                to={`/posts/edit/${post.id}`}>
+                수정
+              </Link>
+            </div>
+            <div className="post__text post__text--pre-wrap">
+              {post.content}
+            </div>
+          </div>) :
+          <Loader />}
       </div>
     </>
   )

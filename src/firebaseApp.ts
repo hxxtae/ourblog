@@ -1,6 +1,6 @@
 import { initializeApp, FirebaseApp, getApp } from "firebase/app";
-
-export let app: FirebaseApp;
+import "firebase/auth";
+import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -12,13 +12,18 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_ID
 };
 
+// Firebase initialize & Get App
+export let app: FirebaseApp;
+
 try {
   app = getApp("app");
 } catch (e) {
   app = initializeApp(firebaseConfig, "app");
 }
 
-// // Initialize Firebase
-// const firebase = initializeApp(firebaseConfig);
+// Initialize Cloud Firestore and get a reference to the service
+export const db = getFirestore(app);
 
-// export default firebase;
+// Initialize Firebase
+const firebase = initializeApp(firebaseConfig);
+export default firebase;
