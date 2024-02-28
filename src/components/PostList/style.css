@@ -7,7 +7,7 @@
   margin: 0 auto;
   font-size: 14px;
   font-weight: 600;
-  color: #999999;
+  color: var(--tertiary);
   user-select: none;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .post__navigation--active {
-  color: #111111;  
+  color: var(--foreground)
 }
 
 .post__list {
@@ -28,12 +28,12 @@
 
 .post__list .post__box {
   padding: 20px 0;
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid var(--line);
 }
 
 .post__list .post__box a {
   text-decoration: none;
-  color: #111111;
+  color: var(--foreground);
 }
 
 .post__list .post__box .post__profile-box {
@@ -75,12 +75,11 @@
   flex-direction: row-reverse;
   gap: 8px;
   font-size: 14px;
-  color: #999999;
 }
 
 .post__list .post__no-post {
   padding: 20px 0;
-  border: 1px solid #f2f2f2;
+  border: 1px solid var(--line);
   border-radius: 7px;
   text-align: center;
   font-size: 14px;
@@ -89,15 +88,16 @@
 .post__list .post__utils-box .post__delete,
 .post__list .post__utils-box .post__edit {
   cursor: pointer;
-  color: #999999;
+  color: var(--tertiary);
+  user-select: none;
 }
 
 .post__list .post__utils-box .post__delete:active,
 .post__list .post__utils-box .post__delete:hover {
-  color: #111111;
+  color: var(--foreground);
 }
 
 .post__list .post__utils-box .post__edit:active,
 .post__list .post__utils-box .post__edit:hover {
-  color: #111111;
+  color: var(--foreground);
 }

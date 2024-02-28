@@ -6,7 +6,7 @@
 }
 
 .post__detail .post__box {
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid var(--line);
   margin-bottom: 25px;
 }
 
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #999999;
+  color: var(--both);
   margin-bottom: 10px;
 }
 
@@ -41,29 +41,28 @@
   display: flex;
   gap: 8px;
   padding: 15px 0;
-  border-top: 1px solid #f2f2f2;
-  border-bottom: 1px solid #f2f2f2;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   font-size: 14px;
-  color: #999999;
 }
 
 .post__detail .post__utils-box .post__delete,
 .post__detail .post__utils-box .post__edit {
   cursor: pointer;
+  color: var(--tertiary);
 }
 
 .post__detail .post__delete:active,
 .post__detail .post__delete:hover {
-  color: #111111;
+  color: var(--foreground);
 }
 
 .post__detail .post__edit:active,
 .post__detail .post__edit:hover{
-  color: #111111;
+  color: var(--foreground);
 }
 
 .post__detail .post__edit {
-  color: #999999;
   text-decoration: none;
 }
 

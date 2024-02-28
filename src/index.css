@@ -1,3 +1,25 @@
+.light {
+  --background: #f8f9fa;
+  --foreground: #212529;
+  --card-background: #e9ecef;
+  --card-foreground: #343a40;
+  --secondary: #dee2e6;
+  --tertiary: #ced4da;
+  --both: #adb5bd;
+  --line: #ced4da;
+}
+
+.dark {
+  --background: #212529;
+  --foreground: #f8f9fa;
+  --card-background: #343a40;
+  --card-foreground: #e9ecef;
+  --secondary: #495057;
+  --tertiary: #6c757d;
+  --both: #adb5bd;
+  --line: #6c757d;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +27,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body .light {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body .dark {
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 code {

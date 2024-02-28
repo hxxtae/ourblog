@@ -4,16 +4,16 @@ footer {
   align-items: center;
   gap: 20px 40px;
   padding: 20px 0;
-  background: #f2f2f2;
+  background: var(--secondary);
   font-size: 14px;
 }
 
 footer a {
   text-decoration: none;
-  color: #999999;
+  color: var(--both);
 }
 
-footer:active,
-footer:hover {
-  color: #111111;
+footer a:active,
+footer a:hover {
+  opacity: .6;
 }
