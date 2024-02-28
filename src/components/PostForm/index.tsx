@@ -39,7 +39,11 @@ export default function PostForm() {
           title,
           summary,
           content,
-          updatedAt: new Date()?.toLocaleDateString(),
+          updatedAt: new Date()?.toLocaleDateString("ko", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }),
         });
 
         toast.success("게시글을 수정했습니다.");
@@ -55,8 +59,13 @@ export default function PostForm() {
           title,
           summary,
           content,
-          createAt: new Date()?.toLocaleDateString(),
-          email: user?.email
+          createdAt: new Date()?.toLocaleDateString("ko", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }),
+          email: user?.email,
+          uid: user?.uid,
         });
   
         toast.success("게시글을 생성했습니다.");

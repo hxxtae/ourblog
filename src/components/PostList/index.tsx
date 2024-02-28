@@ -1,36 +1,55 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { db } from 'firebaseApp';
-import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from 'firebase/firestore';
+import { toast } from 'react-toastify';
 
 import { AuthContext } from 'context/AuthContext';
 import './style.css';
-import { toast } from 'react-toastify';
 
 type TabType = 'all' | 'my';
 
 export type PostProps = {
   id: string;
+  uid: string;
   email: string;
   title: string;
   summary: string;
   content: string;
-  createAt: string;
+  createdAt: string;
   updatedAt?: string;
 }
 
 interface PostListProps {
   hasNavigation?: boolean;
+  defaultTap?: TabType;
 }
 
-export default function PostList({ hasNavigation = true }: PostListProps) {
-  const [activeTab, setActiveTab] = useState<TabType>('all');
+export default function PostList({ hasNavigation = true, defaultTap = "all" }: PostListProps) {
+  const [activeTab, setActiveTab] = useState<TabType>(defaultTap);
   const [posts, setPosts] = useState<PostProps[]>([]);
   const { user } = useContext(AuthContext);
 
   const getPosts = async () => {
     setPosts([]); // 초기화
-    const querySnapshot = await getDocs(collection(db, "posts"));
+
+    const queryRef = collection(db, "posts");
+    let queryFilterQuery;
+    if (activeTab === "my") {
+      queryFilterQuery = query(
+        queryRef,
+        where("uid", "==", user?.uid),
+        orderBy("createdAt", "desc")
+      );
+    } else {
+      queryFilterQuery = query(
+        queryRef,
+        orderBy("createdAt", "desc")
+      );
+    }
+    
+    const querySnapshot = await getDocs(queryFilterQuery);
+
     querySnapshot.forEach((doc) => {
       const docData = { id: doc?.id, ...doc?.data() } as PostProps;
       setPosts((prev) => ([
@@ -56,7 +75,7 @@ export default function PostList({ hasNavigation = true }: PostListProps) {
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [activeTab]);
 
   return (
     <>
@@ -85,12 +104,12 @@ export default function PostList({ hasNavigation = true }: PostListProps) {
               <div className="post__profile-box">
                 <div className="post__profile" />
                 <div className="post__author-name">{ post.email }</div>
-                <div className="post__date">{ post.createAt }</div>
+                <div className="post__date">{ post.createdAt }</div>
               </div>
               <div className="post__title">{ post.title }</div>
               <div className="post__text">{post.summary}</div>
             </Link>
-            {post.email === user?.email && (
+            {post.uid === user?.uid && (
               <div className="post__utils-box">
                 <div
                   role="presentation"
