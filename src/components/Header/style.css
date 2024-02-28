@@ -3,12 +3,13 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid var(--line);
   min-height: 40px;
+  background-color: var(--background);
 }
 
 header .header__logo {
-  color: #111111;
+  color: var(--foreground);
   font-weight: 600;
   font-size: 18px;
 }
@@ -16,11 +17,23 @@ header .header__logo {
 header a {
   margin: 0 10px;
   text-decoration: none;
-  color: #999999;
+  color: var(--both);
   font-size: 14px;
+  user-select: none;
 }
 
-header:active,
-header:hover {
-  color: #111111;
+header a:active,
+header a:hover {
+  opacity: .6;
+}
+
+header .theme-btn {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  margin-left: 10px;
+  color: var(--foreground);
+  cursor: pointer;
 }

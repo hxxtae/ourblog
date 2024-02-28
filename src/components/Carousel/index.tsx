@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './style.css';
 
@@ -8,6 +8,19 @@ const IMG_URL_3 = "https://images.unsplash.com/photo-1708085808027-2ce791c76d11?
 
 export default function Carousel() {
   const [activeImage, setActiveImage] = useState(1);
+
+  useEffect(() => {
+    const changeCarousel = () => {
+      window.setInterval(() => {
+        setActiveImage((prev) => prev % 3 ? prev + 1 : 1)
+      }, 5000);
+    }
+    changeCarousel();
+
+    return () => {
+      changeCarousel();
+    }
+  }, []);
 
   return (
     <div>
