@@ -11,7 +11,11 @@ export default function Header() {
   return (
     <header className="header">
       <div>
-        <Link to={"/"} className="header__logo">React Blog</Link>
+        <Link to={"/"} className="header__logo">
+          {theme === "light" ?
+            <img className="header__img" src="https://github.com/hxxtae/task-list/assets/79623316/5f09584c-e97c-4d79-8782-ae84f2d8d192" alt="light__logo" /> :
+            <img className="header__img" src="https://github.com/hxxtae/task-list/assets/79623316/43f03213-23da-4ca5-873f-30e95c7d9590" alt="dark__logo" />}
+        </Link>
       </div>
       <div>
         <Link to={"/posts/new"}>글쓰기</Link>
