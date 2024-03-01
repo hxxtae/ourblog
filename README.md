@@ -64,6 +64,6 @@
 }
 ```
 
-## Auth
+## Author
 
 <a href="https://github.com/hxxtae">hxxtae</a>
