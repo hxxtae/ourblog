@@ -5,6 +5,7 @@ import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from 'fire
 import { toast } from 'react-toastify';
 
 import { AuthContext } from 'context/AuthContext';
+import { CommentProps } from 'components/Comments';
 import './style.css';
 
 type TabType = 'all' | 'my';
@@ -18,6 +19,7 @@ export type PostProps = {
   content: string;
   createdAt: string;
   updatedAt?: string;
+  comments: CommentProps[] | null;
 }
 
 interface PostListProps {

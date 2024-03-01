@@ -21,6 +21,7 @@ form .form__block {
   border: 1px solid #d4d4d4;
   border-radius: 5px;
   font-size: 16px;
+  outline: none;
 }
 
 .form__block input[type="text"] {
@@ -34,10 +35,12 @@ form .form__block {
   border-radius: 5px;
   line-height: 1.5;
   font-size: 16px;
+  outline: none;
 }
 
 .form__block .form__btn--submit {
   background-color: #2563eb;
+  border: none;
   color: #ffffff;
   font-weight: 500;
   cursor: pointer;

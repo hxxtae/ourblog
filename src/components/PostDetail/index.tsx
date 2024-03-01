@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { PostProps } from 'components/PostList';
 import { AuthContext } from 'context/AuthContext';
 import Loader from 'components/Loader';
+import Comments from 'components/Comments';
 import './style.css';
 
 export default function PostDetail() {
@@ -78,6 +79,8 @@ export default function PostDetail() {
           </div>) :
           <Loader />}
       </div>
+
+      <Comments post={post} getPost={getPost} />
     </>
   )
 }
