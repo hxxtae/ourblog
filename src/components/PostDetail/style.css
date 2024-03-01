@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--both);
+  color: var(--card-foreground);
   margin-bottom: 10px;
 }
 
@@ -30,11 +30,16 @@
   width: 30px;
   height: 30px;
   border-radius: 100px;
-  background: #f2f2f2;
+  background: var(--secondary);
 }
 
 .post__detail .post__box .post__profile-box .post__author-name {
   font-size: 14px;
+}
+
+.post__detail .post__box .post__profile-box .post__date {
+  font-size: 14px;
+  color: var(--both);
 }
 
 .post__detail .post__box .post__utils-box {
