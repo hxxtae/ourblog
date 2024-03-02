@@ -12,10 +12,14 @@ interface ThemeContextProps {
 }
 
 export default function ThemeContextProvider({ children }: ThemeContextProps) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>(localStorage.getItem('theme') as Theme ?? "light");
   
   const toggleTheme = () => {
-    setTheme((prev) => prev === "light" ? "dark" : "light");
+    setTheme((prev) => {
+      const result = prev === "light" ? "dark" : "light";
+      localStorage.setItem('theme', result);
+      return result;
+    });
   }
 
   return (
